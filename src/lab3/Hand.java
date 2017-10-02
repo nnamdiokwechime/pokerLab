@@ -62,7 +62,14 @@ public class Hand implements Comparable<Hand> {
      * @returns true if the hand is a straight 
      */
     public boolean isStraight() {
-    	
+    	for(int x = 0; x<cards.size()-1;x++) {
+    		int d= cards.get(x).getRank().ordinal();
+    		if(d+1 != cards.get(x+1).getRank().ordinal()) {
+    			return false;
+    		}
+    		
+    	}
+    	return true;
         
     }
     
@@ -70,13 +77,20 @@ public class Hand implements Comparable<Hand> {
      * @returns true if the hand is a flush
      */
     public boolean isFlush() {
-        
+    	
+    	for(int x = 0; x<cards.size()-1;x++) {
+    		if(cards.get(x).getSuit()!=(cards.get(x+1).getSuit())) {
+    			return false;
+    		}
+    	}
+        return true; 
     }
     
     @Override
     public int compareTo(Hand h) {
         //hint: delegate!
 		//and don't worry about breaking ties
+    	return -1;
     }
     
     /**
