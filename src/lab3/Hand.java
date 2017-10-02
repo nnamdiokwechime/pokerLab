@@ -62,6 +62,13 @@ public class Hand implements Comparable<Hand> {
      * @returns true if the hand is a straight 
      */
     public boolean isStraight() {
+	    Card[] sorting = cards.toArray();
+	    for(int y = 0; y<cards.size(); y++){
+		    if(cards.get(y).getRank().ordinal() > cards.get(y+1).getRank().ordinal()){
+			    
+		    }
+	    }
+	    
     	for(int x = 0; x<cards.size()-1;x++) {
     		int d= cards.get(x).getRank().ordinal();
     		if(d+1 != cards.get(x+1).getRank().ordinal()) {
@@ -90,6 +97,8 @@ public class Hand implements Comparable<Hand> {
     public int compareTo(Hand h) {
         //hint: delegate!
 		//and don't worry about breaking ties
+
+	    
     	return -1;
     }
     
